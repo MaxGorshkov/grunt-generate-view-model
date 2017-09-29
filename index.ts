@@ -7,9 +7,32 @@ import {FieldMetadata} from "./src/tasks/MakeView/model/fieldmetadata";
 import {FileMetadata} from "./src/tasks/MakeView/model/filemetadata";
 import {render, renderString, configure} from "nunjucks";
 
+export function GenerateView(modelName: string): any {
+    return function(){
+        var f;
+    };
+}
+
+export function IgnoreViewModel(): any {
+    return function(){
+        var f;
+    };
+}
+
+export function ViewModelName(name: string): any {
+    return function(){
+        var f;
+    };
+}
+
+export function ViewModelType(type: string, filepath: string): any {
+    return function(){
+        var f;
+    };
+}
 
 function makeView(grunt: any) {
-  grunt.registerMultiTask("makeView", function() {
+  grunt.registerMultiTask("generateViewModel", "Specify an generateViewModel configuration for future tasks in the chain", function() {
     var  metadata = createMetadatas(this.files, grunt, this);
     CreateFiles(metadata, grunt);
 });

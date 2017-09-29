@@ -5,8 +5,32 @@ const classmetadata_1 = require("./src/tasks/MakeView/model/classmetadata");
 const fieldmetadata_1 = require("./src/tasks/MakeView/model/fieldmetadata");
 const filemetadata_1 = require("./src/tasks/MakeView/model/filemetadata");
 const nunjucks_1 = require("nunjucks");
+function GenerateView(modelName) {
+    return function () {
+        var f;
+    };
+}
+exports.GenerateView = GenerateView;
+function IgnoreViewModel() {
+    return function () {
+        var f;
+    };
+}
+exports.IgnoreViewModel = IgnoreViewModel;
+function ViewModelName(name) {
+    return function () {
+        var f;
+    };
+}
+exports.ViewModelName = ViewModelName;
+function ViewModelType(type, filepath) {
+    return function () {
+        var f;
+    };
+}
+exports.ViewModelType = ViewModelType;
 function makeView(grunt) {
-    grunt.registerMultiTask("makeView", function () {
+    grunt.registerMultiTask("generateViewModel", "Specify an generateViewModel configuration for future tasks in the chain", function () {
         var metadata = createMetadatas(this.files, grunt, this);
         CreateFiles(metadata, grunt);
     });
