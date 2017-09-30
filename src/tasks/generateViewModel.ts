@@ -2,9 +2,9 @@
 
 import {parseStruct} from "ts-file-parser";
 import {ArrayType, BasicType} from "ts-file-parser";
-import {ClassMetadata} from "./MakeView/model/classmetadata";
-import {FieldMetadata} from "./MakeView/model/fieldmetadata";
-import {FileMetadata} from "./MakeView/model/filemetadata";
+import {ClassMetadata} from "./model/classmetadata";
+import {FieldMetadata} from "./model/fieldmetadata";
+import {FileMetadata} from "./model/filemetadata";
 import {render, renderString, configure} from "nunjucks";
 import * as path from "path";
 
@@ -120,7 +120,7 @@ function makeView(grunt: any) {
   }
 
   function  CreateFiles(metadata: FileMetadata[], grunt: any) {
-      let viewsFolder = path.resolve(__dirname, "MakeView/view/");
+      let viewsFolder = path.resolve(__dirname, "view/");
       configure(viewsFolder, {autoescape: true, trimBlocks : true});
       for ( var i = 0; i < metadata.length; i++ ) {
           var mdata = metadata[i];

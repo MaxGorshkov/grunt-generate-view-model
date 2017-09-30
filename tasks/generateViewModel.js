@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const ts_file_parser_1 = require("ts-file-parser");
-const classmetadata_1 = require("./MakeView/model/classmetadata");
-const fieldmetadata_1 = require("./MakeView/model/fieldmetadata");
-const filemetadata_1 = require("./MakeView/model/filemetadata");
+const classmetadata_1 = require("./model/classmetadata");
+const fieldmetadata_1 = require("./model/fieldmetadata");
+const filemetadata_1 = require("./model/filemetadata");
 const nunjucks_1 = require("nunjucks");
 const path = require("path");
 function makeView(grunt) {
@@ -109,7 +109,7 @@ function createMetadatas(files, grunt, obj) {
     return generationFiles;
 }
 function CreateFiles(metadata, grunt) {
-    let viewsFolder = path.resolve(__dirname, "MakeView/view/");
+    let viewsFolder = path.resolve(__dirname, "view/");
     nunjucks_1.configure(viewsFolder, { autoescape: true, trimBlocks: true });
     for (var i = 0; i < metadata.length; i++) {
         var mdata = metadata[i];
