@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const ts_file_parser_1 = require("ts-file-parser");
-const classmetadata_1 = require("./model/classmetadata");
-const fieldmetadata_1 = require("./model/fieldmetadata");
-const filemetadata_1 = require("./model/filemetadata");
+const classmetadata_1 = require("./MakeView/model/classmetadata");
+const fieldmetadata_1 = require("./MakeView/model/fieldmetadata");
+const filemetadata_1 = require("./MakeView/model/filemetadata");
 const nunjucks_1 = require("nunjucks");
 function makeView(grunt) {
     grunt.registerMultiTask("generateViewModel", "Specify an generateViewModel configuration for future tasks in the chain", function () {

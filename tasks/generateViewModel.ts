@@ -2,9 +2,9 @@
 
 import {parseStruct} from "ts-file-parser";
 import {ArrayType, BasicType} from "ts-file-parser";
-import {ClassMetadata} from "./model/classmetadata";
-import {FieldMetadata} from "./model/fieldmetadata";
-import {FileMetadata} from "./model/filemetadata";
+import {ClassMetadata} from "./MakeView/model/classmetadata";
+import {FieldMetadata} from "./MakeView/model/fieldmetadata";
+import {FileMetadata} from "./MakeView/model/filemetadata";
 import {render, renderString, configure} from "nunjucks";
 
 function makeView(grunt: any) {
