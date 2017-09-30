@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         app: {
           files: [{
             src: [
-              "./src/tasks/**/*.ts",
+              "./tasks/**/*.ts",
               "!./dist/**"
             ],
             dest: "./dist"
@@ -32,7 +32,13 @@ module.exports = function(grunt) {
           expand: true,
           cwd: './src/tasks',
           src: ['**/*.njk'],
-          dest: './dist/src/tasks'
+          dest: './dist/tasks'
+        },
+        publish:{
+          expand: true,
+          cwd: './dist',
+          src: ['**'],
+          dest: './'
         }
       },
 
