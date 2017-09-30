@@ -6,6 +6,7 @@ import {ClassMetadata} from "./MakeView/model/classmetadata";
 import {FieldMetadata} from "./MakeView/model/fieldmetadata";
 import {FileMetadata} from "./MakeView/model/filemetadata";
 import {render, renderString, configure} from "nunjucks";
+import * as path from "path";
 
 function makeView(grunt: any) {
     grunt.registerMultiTask("generateViewModel", "Specify an generateViewModel configuration for future tasks in the chain", function() {
@@ -119,7 +120,8 @@ function makeView(grunt: any) {
   }
 
   function  CreateFiles(metadata: FileMetadata[], grunt: any) {
-      configure("./src/tasks/makeView/view", {autoescape: true, trimBlocks : true});
+      let viewsFolder = path.resolve(__dirname, "MakeView/view/");
+      configure(viewsFolder, {autoescape: true, trimBlocks : true});
       for ( var i = 0; i < metadata.length; i++ ) {
           var mdata = metadata[i];
           mdata.classes = mdata.classes.filter((item) => item.generateView);

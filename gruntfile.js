@@ -7,9 +7,10 @@ module.exports = function(grunt) {
         app: {
           files: [{
             src: [
-              "./tasks/**/*.ts",
-              "!./test/**"
+              "./src/tasks/**/*.ts",
+              "!./dist/**"
             ],
+            dest: "./dist"
           },],
           tsconfig: true
         },
@@ -26,13 +27,23 @@ module.exports = function(grunt) {
         }
       },
 
+      copy: {
+        template:{
+          expand: true,
+          cwd: './src/tasks',
+          src: ['**/*.njk'],
+          dest: './dist/src/tasks'
+        }
+      },
+
     });
   
     grunt.loadNpmTasks("grunt-ts");
     grunt.loadNpmTasks("grunt-tslint");
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask("build", [
-      "ts:app", "tslint"
+      "ts:app", "tslint", "copy"
     ]);
 
   };

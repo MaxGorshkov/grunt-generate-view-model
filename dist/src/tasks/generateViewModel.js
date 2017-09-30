@@ -5,6 +5,7 @@ const classmetadata_1 = require("./MakeView/model/classmetadata");
 const fieldmetadata_1 = require("./MakeView/model/fieldmetadata");
 const filemetadata_1 = require("./MakeView/model/filemetadata");
 const nunjucks_1 = require("nunjucks");
+const path = require("path");
 function makeView(grunt) {
     grunt.registerMultiTask("generateViewModel", "Specify an generateViewModel configuration for future tasks in the chain", function () {
         var metadata = createMetadatas(this.files, grunt, this);
@@ -108,7 +109,8 @@ function createMetadatas(files, grunt, obj) {
     return generationFiles;
 }
 function CreateFiles(metadata, grunt) {
-    nunjucks_1.configure("./src/tasks/makeView/view", { autoescape: true, trimBlocks: true });
+    let viewsFolder = path.resolve(__dirname, "MakeView/view/");
+    nunjucks_1.configure(viewsFolder, { autoescape: true, trimBlocks: true });
     for (var i = 0; i < metadata.length; i++) {
         var mdata = metadata[i];
         mdata.classes = mdata.classes.filter((item) => item.generateView);
